@@ -1,0 +1,54 @@
+{
+  "logo": "Disinfection",
+  "ulItems": {
+    "about": "About",
+    "service": "Services",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "switchLang": "EN",
+  "button": "Connection",
+  "cardTitle": "Disinfection service",
+  "cardText": "Our company has been operating for many years our company. Our customers are happy with us",
+  "about": {
+    "title": "Our advantages",
+    "title2": "Fast Service",
+    "text": "Our company has been operating for many years our company Our customers are satisfied with us",
+    "info": "Consider the valve and harmful insects no more !!!"
+  },
+  "service": {
+    "title": "Service",
+    "title1": "VALVES",
+    "text": "They live in beds, upholstered furniture, textiles, under door frames and window frames. They feed on the blood of humans and warm-blooded animals. Causes allergies and severe psychological discomfort.",
+    "title2": "COCKROACHES",
+    "text2": "They carry pathogens. They live in cracks, under the mattress, behind the furniture, under the bathroom, under the cabinets, etc. They feed on food, household waste, leather goods and paper",
+    "title3": "SCORPIO",
+    "text3": "Heat-loving creatures that feed on insects and arachnids. They can live in barns and houses, but most often they are found in wooden buildings.",
+    "sectionText": "Many people have trusted us for many years"
+  },
+  "faq": {
+    "title": "FAQ",
+    "titles": {
+      "title": "How is the transmission of pests carried out?",
+      "text": "With the help of special equipment, insecticides turn into an aerosol mist and penetrate into the smallest gaps between wallpaper, walls and floorboards, potential hiding places for invisible insects.",
+      "title1": "Are the drugs you use dangerous?",
+      "text1": "Medicines are not dangerous for people, pets and plants. But after treatment, the room should be ventilated for 40 minutes.",
+      "title2": "Do I need some way to prepare my home for treatment?",
+      "text2": "Mainly you need to isolate dishes and personal hygiene products. Pets should also be isolated during treatment. No need to move furniture or appliances."
+    }
+  },
+  "contact": {
+    "title": "Leave your information",
+    "placeholder": {
+      "name": "Name",
+      "phoneNumber": "+998"
+    },
+    "button": "Writing",
+    "text": "Many people have trusted us for many years"
+  },
+  "footer": {
+    "logo": "Disinfection",
+    "location": "Tashkent city, Uzbekistan",
+    "number": "+99899 000 00 00"
+  }
+}

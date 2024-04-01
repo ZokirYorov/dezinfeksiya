@@ -1,0 +1,54 @@
+{
+  "logo": "Dezinfeksiya",
+  "ulItems": {
+    "about": "Haqida",
+    "service": "Xizmatlar",
+    "faq": "FAQ",
+    "contact": "Aloqa"
+  },
+  "switchLang": "UZ",
+  "button": "Bog'lanish",
+  "cardTitle": "Dezinfeksiya xizmati",
+  "cardText": "Bizning ko’p yillardan beri o’z faoliyatini olib kelayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun",
+  "about": {
+    "title": "Afzalliklarimiz",
+    "title2": "Tezda Xizmat Ko'rsatish",
+    "text": "Bizning ko’p yillardan beri o’z faoliyatini olib kelayotgan kompaniyamiz Mijozlarimiz bizdan mamnun",
+    "info": "Klapa va zararli hashorot endi yo’q deb hisoblang !!!"
+  },
+  "service": {
+    "title": "Xizmatlar",
+    "title1": "Klapalar",
+    "text": "Ular tushakda,  yumshoq mebelda, to'qimachilikda, eshik romlari va deraza romlari ostida yashaydilar. Ular odamlar va issiq qonli hayvonlarning qoni bilan oziqlanadi. Allergiya va og'ir psixologik noqulaylikni qo'zg'atadi.",
+    "title2": "TARAKANLAR",
+    "text2": "Ular patogenlarni olib yuradilar. Ular yoriqlarda, taglik tagida, mebel orqasida, hammom ostida, shkaflar ostida va xokazolarda yashaydilar. Ular oziq-ovqat, maishiy chiqindilar, charm buyumlar va qog'oz bilan oziqlanadilar",
+    "title3": "ChAYON",
+    "text3": "Hasharotlar va araxnidlar bilan oziqlanadigan issiqlikni yaxshi ko'radigan jonzotlar. Ular omborlarda va uylarda yashashlari mumkin, lekin ko'pincha ular yog'och binolarda topiladi.",
+    "sectionText": "Bizga ko'p yillardan beri kompaniyamizga ishonch bildirganlar talaygina"
+  },
+  "faq": {
+    "title": "FAQ",
+    "titles": {
+      "title": "Zararkunandalarni yuq qilish qanday amalga oshiriladi?",
+      "text": "Maxsus asbob-uskunalar yordamida insektitsidlar aerozolli tumanga aylanadi va devor qog'ozi, devorlar va taxta plitalari orasidagi eng kichik bo'shliqlarga, ko'zga ko'rinmas hasharotlar uchun potentsial yashirish joylari ga kiradi.",
+      "title1": "Siz foydalanadigan dorilar xavflimi?",
+      "text1": "Preparatlar odamlar, uy hayvonlari va usimliklar uchun xavfli emas. Ammo davolanishdan keyin xonani 40 daqiqa davomida ventilyatsiya qilish kerak.",
+      "title2": "Menga uyimni davolanishga tayyorlashning qandaydir usuli kerakmi?",
+      "text2": "Asosan idish-tovoq va shaxsiy gigiyena vositalarini izolyatsiya qilishingiz kerak. Davolash paytida uy hayvonlari ham izolyatsiya qilinishi kerak. Mebel yoki maishiy texnikani ko'chirishga hojat yuq."
+    }
+  },
+  "contact": {
+    "title": "Malumotingizni qoldiring",
+    "placeholder": {
+      "name": "Ism",
+      "phoneNumber": "+998"
+    },
+    "button": "Yozilish",
+    "text": "Bizga ko'p yillardan beri kompaniyamizga ishonch bildirganlar talaygina"
+  },
+  "footer": {
+    "logo": "Dezinfeksiya",
+    "location": "O'zbekiston, Toshkent shahri",
+    "number": "+99899 000 00 00"
+  }
+}
