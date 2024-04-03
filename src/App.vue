@@ -1271,7 +1271,7 @@ body{
       display: flex;
     }
     .languageItem{
-      width: 50px;
+      width: 100px;
       display: flex;
     }
     .menu_item{
