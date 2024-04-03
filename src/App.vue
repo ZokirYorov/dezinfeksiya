@@ -1316,4 +1316,11 @@ body{
     }
   }
 }
+@media (max-width: 580px) {
+  .sticky{
+    .languageItem{
+      width: 100px;
+    }
+  }
+}
 </style>
