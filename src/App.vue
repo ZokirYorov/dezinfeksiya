@@ -962,6 +962,7 @@ body{
           width: 30px;
           height: 30px;
           top: 50px;
+          color: white;
           background-image: url("@/assets/close.png");
           background-size: cover;
           background-repeat: no-repeat;
