@@ -142,7 +142,7 @@
                 ]"
              >
              <div class="accordion-header" @click="toggleAccordion(index)"
-                  data-aos="flip-down"
+
              >
                <p style="font-size: 35px">{{item.title}} </p>
                <img width="35px" height="35px" v-if="!isOpen.includes(index)" :src="chevron" alt="">
