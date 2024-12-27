@@ -130,9 +130,7 @@
        </div>
      </section>
      <div id="faq" class="card_faq">
-       <h2 data-aos="fade-right"
-           data-aos-offset="300"
-           data-aos-easing="ease-in-sine">{{$t('faq.title')}}</h2>
+       <h2 data-aos="fade-right">{{$t('faq.title')}}</h2>
        <div class="faq_right">
          <div id="accordion" class="accordion-container">
            <div style="border-bottom: 1px solid #ccc; color: #676D83; font-size: 22px"
