@@ -37,7 +37,7 @@
            </div>
            <div class="imageItem">
              <img style="width: 30%;" class="image" :src="image1" alt="">
-             <img style="width: 60%" class="sircle" :src="sircle" alt="">
+             <img style="width: 60%" class="circle" :src="circle" alt="">
              <img style="width: 240px" :src="image" alt="">
            </div>
          </div>
@@ -98,14 +98,14 @@
              <h2>{{$t('service.title2')}}</h2>
              <p>{{$t('service.text2')}}</p>
            </div>
-           <img :src="tarakan" alt="">
+           <img :src="cockroach" alt="">
          </div>
          <div class="section_item" data-aos="flip-right">
            <div class="section_card">
              <h2>{{$t('service.title3')}}</h2>
              <p>{{$t('service.text3')}}</p>
            </div>
-           <img :src="chayon" alt="">
+           <img :src="scorpion" alt="">
          </div>
        </div>
        <div class="section_image_items">
@@ -165,9 +165,9 @@
      <div id="contact" class="cardItems">
        <div class="cardLeft" data-aos="zoom-in-right">
          <h2>{{$t("contact.title")}}</h2>
-         <input type="text" name="name" :placeholder="$t('contact.placeholder.name')">
-         <input type="text" name="number" :placeholder="$t('contact.placeholder.phoneNumber')">
-         <button class="btn_save">{{$t('contact.button')}}</button>
+         <input id="name" type="text" v-model="name" name="name" :placeholder="$t('contact.placeholder.name')">
+         <input id="number" type="number" v-model="phone" name="number" :placeholder="$t('contact.placeholder.phoneNumber')">
+         <button @click="clickButton" class="btn_save">{{$t('contact.button')}}</button>
        </div>
        <div class="cardRight"
             data-aos="flip-left"
@@ -198,13 +198,13 @@
 import logo from '@/assets/logo.png'
 import image from '@/assets/image.png'
 import image1 from '@/assets/image1.png'
-import sircle from '@/assets/circle.png'
+import circle from '@/assets/circle.png'
 import frame from '@/assets/Frame.png'
 import mask from '@/assets/Mask.png'
 import mask1 from '@/assets/mask1.png'
 import mask2 from '@/assets/Mask2.png'
-import tarakan from '@/assets/tarakan.jpg'
-import chayon from '@/assets/chayon.jpg'
+import cockroach from '@/assets/tarakan.jpg'
+import scorpion from '@/assets/chayon.jpg'
 import peopleCard from '@/assets/people.png'
 import icons from '@/assets/icons.png'
 import chevron from '@/assets/chevron.jpg'
@@ -226,6 +226,12 @@ const switchLang = ()=> {
 <script>
 import { onMounted } from "@vue/runtime-core";
 import AOS from "aos";
+
+let u_name = document.getElementById("name")
+let u_number = document.getElementById("number")
+
+let telegram_bot_id = "token";
+let chat_id = 1111
 
 let coll = document.getElementsByClassName("faq_item")
 let i;
@@ -255,6 +261,8 @@ export default {
     return{
       activeName:'',
       toggleBtn: false,
+      name: "",
+      phone: "",
       items: [
         {
           title: this.$t('faq.titles.title'),
@@ -273,6 +281,9 @@ export default {
     }
   },
   methods:{
+    clickButton(){
+
+    },
     toggleAccordion(index) {
       if (this.isOpen.includes(index)) {
         this.isOpen = this.isOpen.filter(i => i !== index);
