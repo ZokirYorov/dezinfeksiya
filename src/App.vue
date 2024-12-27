@@ -297,16 +297,16 @@ export default {
 
       menu.classList.remove('menu_item')
       ulItem.classList.add("active")
-      closeIcon.classList.add("activClose")
+      closeIcon.classList.add("activeClose")
     },
     closeContent(){
       let ulItem =document.getElementById('ulItem')
       let menu = document.getElementById("menu")
-      let closeIcon = document.getElementById('activClose')
+      let closeIcon = document.getElementById('activeClose')
 
       menu.classList.add('menu_item')
       ulItem.classList.remove("active")
-      closeIcon.classList.remove("activClose")
+      closeIcon.classList.remove("activeClose")
     }
   },
   init() {
@@ -495,7 +495,7 @@ body{
               top: 25px;
               z-index: -1;
             }
-            .sircle{
+            .circle{
               position: absolute;
               z-index: -1;
               right: 180px;
@@ -965,7 +965,7 @@ body{
             color: white;
           }
         }
-        .activClose{
+        .activeClose{
           display: flex;
           position: absolute;
           width: 30px;
@@ -977,7 +977,7 @@ body{
           z-index: 1;
           right: 50px;
         }
-        .activClose:hover{
+        .activeClose:hover{
           cursor: pointer;
         }
       }
