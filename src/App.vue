@@ -21,6 +21,7 @@
        <div @click="clickItems()" id="menu"  class="menu_item">
        </div>
        <div class="close_icon" @click="closeContent()" id="closeIcon" >
+         <img :src="close" alt="">
        </div>
        <button id="btn_item" class="btn_item" type="button"><a href="#contact">{{$t('button')}}</a> </button>
      </div>
@@ -130,7 +131,7 @@
        </div>
      </section>
      <div id="faq" class="card_faq">
-       <h2>{{$t('faq.title')}}</h2>
+       <h2 data-aos="fade-right">{{$t('faq.title')}}</h2>
        <div class="faq_right">
          <div id="accordion" class="accordion-container">
            <div style="border-bottom: 1px solid #ccc; color: #676D83; font-size: 22px"
@@ -149,11 +150,11 @@
                <img width="30px" height="30px" v-else :src="upIcon" alt="">
              </div>
              <div class="accordion-body"
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
              >
                <div class="accordion-content">
-                 {{item.text}}
+                 <p class="itemText" ref="itemText">
+                   {{item.text}}
+                 </p>
                </div>
              </div>
            </div>
@@ -302,7 +303,7 @@ export default {
     closeContent(){
       let ulItem =document.getElementById('ulItem')
       let menu = document.getElementById("menu")
-      let closeIcon = document.getElementById('activeClose')
+      let closeIcon = document.getElementById('closeIcon')
 
       menu.classList.add('menu_item')
       ulItem.classList.remove("active")
@@ -784,6 +785,9 @@ body{
             align-items: center;
             justify-content: space-between;
           }
+          .itemText{
+
+          }
           .accordion-body{
             padding-bottom: 20px;
           }
@@ -940,7 +944,7 @@ body{
           right: 100px;
         }
         .close_icon{
-          display: none;
+          display: flex;
         }
         .active{
           display: flex;
@@ -971,6 +975,7 @@ body{
           width: 30px;
           height: 30px;
           top: 50px;
+          color: white;
           background-image: url("@/assets/close.png");
           background-size: cover;
           background-repeat: no-repeat;
@@ -979,6 +984,7 @@ body{
         }
         .activeClose:hover{
           cursor: pointer;
+          color: red;
         }
       }
     }
