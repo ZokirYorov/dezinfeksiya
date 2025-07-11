@@ -164,8 +164,8 @@
      <div id="contact" class="cardItems">
        <div class="cardLeft" data-aos="zoom-in-right">
          <h2>{{$t("contact.title")}}</h2>
-         <input id="name" type="text" v-model="name" name="name" :placeholder="$t('contact.placeholder.name')">
-         <input id="number" type="number" v-model="phone" name="number" :placeholder="$t('contact.placeholder.phoneNumber')">
+         <input required id="name" type="text" v-model="name" name="name" :placeholder="$t('contact.placeholder.name')">
+         <input required id="number" type="number" v-model="number" name="number" :placeholder="$t('contact.placeholder.phoneNumber')">
          <button @click="clickButton" class="btn_save">{{$t('contact.button')}}</button>
        </div>
        <div class="cardRight"
@@ -226,11 +226,8 @@ const switchLang = ()=> {
 import { onMounted } from "@vue/runtime-core";
 import AOS from "aos";
 
-let u_name = document.getElementById("name")
-let u_number = document.getElementById("number")
+import axios from "axios";
 
-let telegram_bot_id = "token";
-let chat_id = 1111
 
 let coll = document.getElementsByClassName("faq_item")
 let i;
@@ -260,8 +257,10 @@ export default {
     return{
       activeName:'',
       toggleBtn: false,
+      token: '7374343687:AAGXcf0P4AHOGWpCFd8hx_hMY4wJ086y_Qs',
+      chat_id: "764702407",
       name: "",
-      phone: "",
+      number: "",
       items: [
         {
           title: this.$t('faq.titles.title'),
@@ -281,7 +280,13 @@ export default {
   },
   methods:{
     clickButton(){
-
+      const fullMessage = `name: ${this.name}\number: ${this.number}`
+      axios.post(`https://api.telegram.org/bot${this.token}\sendMessage?chat_id${this.chat_id}`)
+          .then((res) => {
+            let data = res.data
+            console.log("response", data.data.name)
+          })
+      console.log("Name:",this.name,",", "Number:",this.number)
     },
     toggleAccordion(index) {
       if (this.isOpen.includes(index)) {
@@ -816,7 +821,6 @@ body{
           font-size: 30px;
           font-weight: 700;
           line-height: 40px;
-          //width: 300px;
           margin-bottom: 40px;
         }
         input{
