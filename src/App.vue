@@ -137,19 +137,18 @@
            <div style="border-bottom: 1px solid #ccc; color: #676D83; font-size: 22px"
                v-for="(item, index) in items"
                :key="index"
-               :class="[
-                'accordion',
-                { 'is-open': isOpen.includes(index) }
-                ]"
              >
              <div class="accordion-header" @click="toggleAccordion(index)"
-
              >
                <p style="font-size: 35px">{{item.title}} </p>
-               <img width="35px" height="35px" v-if="!isOpen.includes(index)" :src="chevron" alt="">
-               <img width="30px" height="30px" v-else :src="upIcon" alt="">
+               <img :src="chevron"
+                    :style="{
+                 transition: 'transform 0.3s',
+                  transform: isOpen === index ? 'rotate(180deg)' : 'rotate(0deg)'}"
+                    style="width: 24px; height: 24px" alt="chevron">
              </div>
              <div class="accordion-body"
+                  v-if="isOpen === index"
              >
                <div class="accordion-content">
                  <p class="itemText" ref="itemText">
@@ -212,7 +211,6 @@ import Logo from '@/assets/Logo.jpg'
 import location from '@/assets/location.png'
 import phone from '@/assets/phone.png'
 import klop from '@/assets/klop.jpg'
-import upIcon from '@/assets/upIcon.jpg'
 
 import  { useI18n } from "vue-i18n"
 const { t, locale } =useI18n({useScope: "global"})
@@ -289,12 +287,7 @@ export default {
       console.log("Name:",this.name,",", "Number:",this.number)
     },
     toggleAccordion(index) {
-      if (this.isOpen.includes(index)) {
-        this.isOpen = this.isOpen.filter(i => i !== index);
-        return;
-      }
-
-      this.isOpen.push(index);
+      this.isOpen = this.isOpen === index ? null : index;
     },
     clickItems(){
       let ulItem =document.getElementById('ulItem')
