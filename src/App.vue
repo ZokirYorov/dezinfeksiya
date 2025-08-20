@@ -284,14 +284,19 @@ export default {
       }
       const fullMessage = `Name: ${this.name}\nNumber: ${this.number}`;
       try {
-        const res = await axios.post(
+        const res = await fetch(
             `https://api.telegram.org/bot${this.token}/sendMessage`,
             {
-              chat_id: this.chat_id,
-              text: fullMessage
+              method: "POST",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify({
+                chat_id: this.chat_id,
+                text: fullMessage
+              }),
             }
         );
-        console.log("Message sent:", res.data);
+        const data = await res.json();
+        console.log("Message sent:", data);
         this.name = '';
         this.number = '';
       } catch (err) {
