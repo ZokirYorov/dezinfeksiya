@@ -4,26 +4,26 @@
      <div class="logo_item">
        <h1>
          <img :src="Logo" alt="">
-         <span>{{$t('logo')}}</span>
+         <span>{{t('logo')}}</span>
        </h1>
      </div>
 
      <div class="list_items">
        <ul id="ulItem" class="ul_item">
-         <li><a href="#about">{{$t('ulItems.about')}}</a></li>
-         <li><a href="#service">{{$t('ulItems.service')}}</a></li>
-         <li><a href="#faq">{{$t('ulItems.faq')}}</a></li>
-         <li><a href="#contact">{{$t('ulItems.contact')}}</a></li>
+         <li><a href="#about">{{t('ulItems.about')}}</a></li>
+         <li><a href="#service">{{t('ulItems.service')}}</a></li>
+         <li><a href="#faq">{{t('ulItems.faq')}}</a></li>
+         <li><a href="#contact">{{t('ulItems.contact')}}</a></li>
        </ul>
        <button @click="switchLang" class="languageItem">
-         {{$t('switchLang')}}
+         {{t('switchLang')}}
        </button>
        <div @click="clickItems()" id="menu"  class="menu_item">
        </div>
        <div class="close_icon" @click="closeContent()" id="closeIcon" >
          <img :src="close" alt="">
        </div>
-       <button id="btn_item" class="btn_item" type="button"><a href="#contact">{{$t('button')}}</a> </button>
+       <button id="btn_item" class="btn_item" type="button"><a href="#contact">{{t('button')}}</a> </button>
      </div>
    </header>
    <div class="content">
@@ -33,8 +33,8 @@
        >
          <div class="card_items">
            <div  class="card_lorem">
-             <h1>{{$t('cardTitle')}}</h1>
-             <span>{{$t('cardText')}}</span>
+             <h1>{{t('cardTitle')}}</h1>
+             <span>{{t('cardText')}}</span>
            </div>
            <div class="imageItem">
              <img style="width: 30%;" class="image" :src="image1" alt="">
@@ -43,7 +43,7 @@
            </div>
          </div>
          <div class="btn_items">
-           <button class="btn_item"><a href="#contact">{{$t('button')}}</a> </button>
+           <button class="btn_item"><a href="#contact">{{t('button')}}</a> </button>
            <img :src="frame" alt="">
          </div>
        </div>
@@ -53,58 +53,58 @@
        </div>
      </div>
      <div id="about" class="about">
-       <h1>{{$t('about.title')}}</h1>
+       <h1>{{t('about.title')}}</h1>
        <div class="frames">
          <div class="frame" data-aos="flip-down">
            <img :src="mask" alt="">
-           <h2>{{$t("about.title2")}}</h2>
-           <span>{{$t('about.text')}}</span>
+           <h2>{{t("about.title2")}}</h2>
+           <span>{{t('about.text')}}</span>
          </div>
          <div class="frame" data-aos="flip-down">
            <img :src="mask1" alt="">
-           <h2>{{$t('about.title')}}</h2>
-           <span>{{$t('about.text')}}</span>
+           <h2>{{t('about.title')}}</h2>
+           <span>{{t('about.text')}}</span>
          </div>
          <div class="frame" data-aos="flip-down">
            <img :src="mask2" alt="">
-           <h2>{{$t('about.title')}}</h2>
-           <span>{{$t('about.text')}}</span>
+           <h2>{{t('about.title')}}</h2>
+           <span>{{t('about.text')}}</span>
          </div>
        </div>
        <div class="card_image">
          <div class="image_info" data-aos="flip-right">
            <div class="info_item"
            >
-             <p>{{$t('about.info')}}</p>
-             <span>{{$t('about.text')}}</span>
+             <p>{{t('about.info')}}</p>
+             <span>{{t('about.text')}}</span>
            </div>
-           <button class="btn_item"><a href="#contact">{{$t('button')}}</a> </button>
+           <button class="btn_item"><a href="#contact">{{t('button')}}</a> </button>
          </div>
        </div>
      </div>
      <section>
        <div id="service" class="title_Items" data-aos="fade-up-right">
-         <h2>{{$t('service.title')}}</h2>
+         <h2>{{t('service.title')}}</h2>
        </div>
        <div class="section_items">
          <div class="section_item" data-aos="flip-right">
            <div class="section_card">
-             <h2>{{$t('service.title1')}}</h2>
-             <p>{{$t('service.text')}}</p>
+             <h2>{{t('service.title1')}}</h2>
+             <p>{{t('service.text')}}</p>
            </div>
            <img :src="klop" alt="">
          </div>
          <div class="section_item" data-aos="flip-right">
            <div class="section_card">
-             <h2>{{$t('service.title2')}}</h2>
-             <p>{{$t('service.text2')}}</p>
+             <h2>{{t('service.title2')}}</h2>
+             <p>{{t('service.text2')}}</p>
            </div>
            <img :src="cockroach" alt="">
          </div>
          <div class="section_item" data-aos="flip-right">
            <div class="section_card">
-             <h2>{{$t('service.title3')}}</h2>
-             <p>{{$t('service.text3')}}</p>
+             <h2>{{t('service.title3')}}</h2>
+             <p>{{t('service.text3')}}</p>
            </div>
            <img :src="scorpion" alt="">
          </div>
@@ -124,14 +124,14 @@
          >
            <div class="right_items">
              <img :src="icons" alt="">
-             <p>{{$t('service.sectionText')}}</p>
+             <p>{{t('service.sectionText')}}</p>
            </div>
-           <button class="btn_item"><a href="#contact">{{$t('button')}}</a> </button>
+           <button class="btn_item"><a href="#contact">{{t('button')}}</a> </button>
          </div>
        </div>
      </section>
      <div id="faq" class="card_faq">
-       <h2 data-aos="fade-right">{{$t('faq.title')}}</h2>
+       <h2 data-aos="fade-right">{{t('faq.title')}}</h2>
        <div class="faq_right">
          <div id="accordion" class="accordion-container">
            <div style="border-bottom: 1px solid #ccc; color: #676D83; font-size: 22px"
@@ -162,27 +162,27 @@
      </div>
      <div id="contact" class="cardItems">
        <div class="cardLeft" data-aos="zoom-in-right">
-         <h2>{{$t("contact.title")}}</h2>
-         <input required id="name" type="text" v-model="name" name="name" :placeholder="$t('contact.placeholder.name')">
-         <input required id="number" type="number" v-model="number" name="number" :placeholder="$t('contact.placeholder.phoneNumber')">
-         <button @click="clickButton" class="btn_save">{{$t('contact.button')}}</button>
+         <h2>{{t("contact.title")}}</h2>
+         <input required id="name" type="text" v-model="name" name="name" :placeholder="t('contact.placeholder.name')">
+         <input required id="number" type="number" v-model="number" name="number" :placeholder="t('contact.placeholder.phoneNumber')">
+         <button @click="clickButton" class="btn_save">{{t('contact.button')}}</button>
        </div>
        <div class="cardRight"
             data-aos="flip-left"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000">
-         <p>{{$t('contact.text')}}</p>
+         <p>{{t('contact.text')}}</p>
          <img :src="person" alt="person">
        </div>
      </div>
      <footer>
        <div class="footerTitle">
          <img :src="Logo" alt="">
-         {{$t('footer.logo')}}
+         {{t('footer.logo')}}
        </div>
        <div class="footer_right">
-         <a href="#"><img  id="location" :src="location" alt="">{{$t('footer.location')}}</a>
-         <label><img :src="phone" alt="">{{$t('footer.number')}}</label>
+         <a href="#"><img  id="location" :src="location" alt="">{{t('footer.location')}}</a>
+         <label><img :src="phone" alt="">{{t('footer.number')}}</label>
          <p></p>
        </div>
      </footer>
@@ -277,14 +277,27 @@ export default {
     }
   },
   methods:{
-    clickButton(){
-      const fullMessage = `name: ${this.name}\number: ${this.number}`
-      axios.post(`https://api.telegram.org/bot${this.token}\sendMessage?chat_id${this.chat_id}`)
-          .then((res) => {
-            let data = res.data
-            console.log("response", data.data.name)
-          })
-      console.log("Name:",this.name,",", "Number:",this.number)
+    async clickButton() {
+      if (!this.name || !this.number){
+        alert('Iltimos ism va raqamni kiriting!');
+        return;
+      }
+      const fullMessage = `Name: ${this.name}\nNumber: ${this.number}`;
+      try {
+        const res = await axios.post(
+            `https://api.telegram.org/bot${this.token}/sendMessage`,
+            {
+              chat_id: this.chat_id,
+              text: fullMessage
+            }
+        );
+        console.log("Message sent:", res.data);
+        this.name = '';
+        this.number = '';
+      } catch (err) {
+        alert('Xabar yuborilmadi!');
+        console.error("Error sending message:", err);
+      }
     },
     toggleAccordion(index) {
       this.isOpen = this.isOpen === index ? null : index;
@@ -534,8 +547,6 @@ body{
             }
           }
         }
-        img{
-        }
       }
       .right_image{
         width: 750px;
@@ -783,9 +794,6 @@ body{
             align-items: center;
             justify-content: space-between;
           }
-          .itemText{
-
-          }
           .accordion-body{
             padding-bottom: 20px;
           }
@@ -913,8 +921,7 @@ body{
   .container{
     width: 100%;
     .sticky{
-      .logo_item{
-      }
+
       .list_items{
         display: flex;
         width: 400px;
@@ -1047,8 +1054,6 @@ body{
     width: 100%;
     display: flex;
     gap: 50px;
-    .section_image{
-    }
     .section_card_right{
       display: flex;
       width: 600px;
@@ -1254,8 +1259,6 @@ body{
       .section_image{
         width: 400px;
         display: flex;;
-        img{
-        }
       }
     }
     footer{
