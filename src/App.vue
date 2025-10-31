@@ -8,16 +8,23 @@
        </h1>
      </div>
 
-     <div class="list_items">
-       <ul id="ulItem" class="ul_item">
-         <li><a href="#about">{{t('ulItems.about')}}</a></li>
-         <li><a href="#service">{{t('ulItems.service')}}</a></li>
-         <li><a href="#faq">{{t('ulItems.faq')}}</a></li>
-         <li><a href="#contact">{{t('ulItems.contact')}}</a></li>
-       </ul>
-       <button @click="switchLang" class="languageItem">
-         {{t('switchLang')}}
-       </button>
+     <div class="list_items flex gap-5">
+       <div id="ulItem"
+           class="ul_item"
+           v-for="(list, index) in lists"
+           :key="index"
+       >
+         <span class="flex text-red-200 rounded hover:bg-gray-300 px-2">
+           <a style="text-transform: uppercase; color: blue" :href="list.link">{{list.name}}</a>
+         </span>
+       </div>
+       <select
+           @change="switchLang"
+           class="bg-gray-300 rounded px-2 flex h-10"
+       >
+         <option  value="">EN</option>
+         <option value="">UZ</option>
+       </select>
        <div @click="clickItems()" id="menu"  class="menu_item">
        </div>
        <div class="close_icon" @click="closeContent()" id="closeIcon" >
@@ -211,6 +218,7 @@ import Logo from '@/assets/Logo.jpg'
 import location from '@/assets/location.png'
 import phone from '@/assets/phone.png'
 import klop from '@/assets/klop.jpg'
+import { computed } from 'vue'
 
 import  { useI18n } from "vue-i18n"
 const { t, locale } =useI18n({useScope: "global"})
@@ -218,9 +226,33 @@ const { t, locale } =useI18n({useScope: "global"})
 const switchLang = ()=> {
   locale.value === 'en' ? locale.value = 'uz' : locale.value = 'en'
 }
+
+const lists = computed(() =>  [
+  {
+    id: 1,
+    link: '#about',
+    name: t('ulItems.about')
+  },
+  {
+    id: 2,
+    link: '#service',
+    name: t('ulItems.service')
+  },
+  {
+    id: 3,
+    link: '#faq',
+    name: t('ulItems.faq')
+  },
+  {
+    id: 4,
+    link: '#contact',
+    name: t('ulItems.contact')
+  }
+])
 </script>
 
 <script>
+
 import { onMounted } from "@vue/runtime-core";
 import AOS from "aos";
 
@@ -409,14 +441,11 @@ body{
         align-items: center;
         list-style-type: none;
         justify-content: space-between;
-        li{
+        span{
           display: flex;
           justify-content: center;
           height: 100%;
-          a{
-            color: blue;
-            text-align: center;
-          }
+
           a:hover{
             background: none;
           }
