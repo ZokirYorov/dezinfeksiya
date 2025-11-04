@@ -14,7 +14,10 @@
            v-for="(list, index) in lists"
            :key="index"
        >
-         <span class="flex text-red-200 rounded hover:bg-gray-300 px-2">
+         <span
+             @click="clickActive(list.id)"
+             :class="isActive === list.id ? 'bg-gray-200' : ''"
+             class="flex text-red-200 rounded items-center w-full hover:bg-gray-300 px-2">
            <a style="text-transform: uppercase; color: blue" :href="list.link">{{list.name}}</a>
          </span>
        </div>
@@ -219,13 +222,21 @@ import location from '@/assets/location.png'
 import phone from '@/assets/phone.png'
 import klop from '@/assets/klop.jpg'
 import { computed } from 'vue'
-
+import { ref} from 'vue'
 import  { useI18n } from "vue-i18n"
 const { t, locale } =useI18n({useScope: "global"})
 
 const switchLang = ()=> {
   locale.value === 'en' ? locale.value = 'uz' : locale.value = 'en'
 }
+
+const isActive = ref('');
+
+const clickActive = (id) => {
+  isActive.value = id
+
+}
+
 
 const lists = computed(() =>  [
   {
@@ -249,6 +260,14 @@ const lists = computed(() =>  [
     name: t('ulItems.contact')
   }
 ])
+
+const idClickItem = () => {
+  if (lists.value.length > 0) {
+    isActive.value = lists.value[0].id
+  }
+}
+
+idClickItem()
 </script>
 
 <script>
