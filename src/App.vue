@@ -1,6 +1,6 @@
 <template>
  <div class="container">
-   <header class="sticky">
+   <header class="sticky mb-10 bg-black/10 h-20">
      <div class="logo_item">
        <h1>
          <img :src="Logo" alt="">
@@ -17,7 +17,7 @@
          <span
              @click="clickActive(list.id)"
              :class="isActive === list.id ? 'bg-gray-200' : ''"
-             class="flex text-red-200 rounded items-center w-full hover:bg-gray-300 px-2">
+             class="flex rounded items-center w-full hover:bg-gray-300">
            <a style="text-transform: uppercase; color: blue" :href="list.link">{{list.name}}</a>
          </span>
        </div>
@@ -33,10 +33,10 @@
        <div class="close_icon" @click="closeContent()" id="closeIcon" >
          <img :src="close" alt="">
        </div>
-       <button id="btn_item" class="btn_item" type="button"><a href="#contact">{{t('button')}}</a> </button>
+       <button id="btn_item" class="btn_item px-2" type="button"><a href="#contact">{{t('button')}}</a> </button>
      </div>
    </header>
-   <div class="content">
+   <div class="content mt-10 flex">
      <div class="card">
        <div class="card_item"
             data-aos="fade-right"
@@ -275,7 +275,6 @@ idClickItem()
 import { onMounted } from "@vue/runtime-core";
 import AOS from "aos";
 
-import axios from "axios";
 
 
 let coll = document.getElementsByClassName("faq_item")
@@ -333,7 +332,7 @@ export default {
         alert('Iltimos ism va raqamni kiriting!');
         return;
       }
-      const fullMessage = `Name: ${this.name}\nNumber: ${this.number}`;
+      const fullMessage = `Name: ${this.name}\nTel: ${this.number}`;
       try {
         const res = await fetch(
             `https://api.telegram.org/bot${this.token}/sendMessage`,
@@ -359,7 +358,7 @@ export default {
       this.isOpen = this.isOpen === index ? null : index;
     },
     clickItems(){
-      let ulItem =document.getElementById('ulItem')
+      let ulItem =document.querySelector('.ul_item')
       let menu = document.getElementById("menu")
       let closeIcon = document.getElementById('closeIcon')
 
@@ -368,7 +367,7 @@ export default {
       closeIcon.classList.add("activeClose")
     },
     closeContent(){
-      let ulItem =document.getElementById('ulItem')
+      let ulItem =document.querySelector('.ul_item')
       let menu = document.getElementById("menu")
       let closeIcon = document.getElementById('closeIcon')
 
@@ -405,8 +404,6 @@ body{
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: white;
-    height: 150px;
     display: flex;
     padding: 20px 50px;
     justify-content: space-between;
@@ -456,6 +453,7 @@ body{
       align-items: center;
       .ul_item{
         width: 400px;
+        height: 100%;
         display: flex;
         align-items: center;
         list-style-type: none;
@@ -463,8 +461,7 @@ body{
         span{
           display: flex;
           justify-content: center;
-          height: 100%;
-
+          height: 50px;
           a:hover{
             background: none;
           }
@@ -518,7 +515,7 @@ body{
     display: flex;
     width: 95%;
     height: 100%;
-    margin: 0 auto;
+    margin: 50px auto;
     flex-direction: column;
     .card{
       display: flex;
@@ -1011,19 +1008,24 @@ body{
           top: 0;
           padding: 50px 0;
           right: 0;
-          width: 400px;
-          height: 500px;
-          justify-content: space-between;
+          width: 500px;
+          height: 800px;
           align-items: center;
           text-align: center;
           flex-direction: column;
-          a{
-            width: 100px;
-            height: 40px;
+          span{
             display: flex;
-            justify-content: center;
-            background-color: #676D83;
-            color: white;
+            margin-top: 50px;
+            height: 10%;
+            width: 60%;
+            a{
+              width: 100px;
+              height: 40px;
+              display: flex;
+              justify-content: center;
+              background-color: #676D83;
+              color: white;
+            }
           }
         }
         .activeClose{
