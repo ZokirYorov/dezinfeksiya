@@ -1,7 +1,6 @@
-import './index.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import './index.css'
+import './style.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -12,7 +11,7 @@ import 'aos/dist/aos.css'
 
 import { languages } from "./i18n";
 import { defaultLocale} from "./i18n";
-import { createI18n, useI18n} from "vue-i18n"
+import { createI18n} from "vue-i18n"
 
 const messages = Object.assign(languages)
 const i18n = createI18n({

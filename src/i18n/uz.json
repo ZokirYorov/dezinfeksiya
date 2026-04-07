@@ -13,7 +13,7 @@
   "about": {
     "title": "Afzalliklarimiz",
     "title2": "Tezda Xizmat Ko'rsatish",
-    "text": "Bizning ko’p yillardan beri o’z faoliyatini olib kelayotgan kompaniyamiz Mijozlarimiz bizdan mamnun",
+    "text": "Biz ko’p yillardan beri o’z faoliyatini yo'ritib kelayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun",
     "info": "Klapa va zararli hashorot endi yo’q deb hisoblang !!!"
   },
   "service": {
@@ -41,9 +41,10 @@
     "title": "Malumotingizni qoldiring",
     "placeholder": {
       "name": "Ism",
-      "phoneNumber": "+998"
+      "phoneNumber": "+998",
+      "write": "Yozish ..."
     },
-    "button": "Yozilish",
+    "button": "Yuborish",
     "text": "Bizga ko'p yillardan beri kompaniyamizga ishonch bildirganlar talaygina"
   },
   "footer": {

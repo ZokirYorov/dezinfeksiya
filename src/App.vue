@@ -1,48 +1,57 @@
 <template>
- <div class="container">
-   <header class="sticky mb-10 bg-black/10 h-20">
+ <div class="allItems gap-10">
+   <header class="sticky bg-gray-400 h-20">
      <div class="logo_item">
        <h1>
          <img :src="Logo" alt="">
-         <span>{{t('logo')}}</span>
+         <span class="text-sm">{{t('logo')}}</span>
        </h1>
      </div>
 
-     <div class="list_items flex gap-5">
-       <div id="ulItem"
+     <div class="list_items flex gap-4">
+       <div
            class="ul_item"
-           v-for="(list, index) in lists"
-           :key="index"
+           v-for="list in lists"
+           :key="list.id"
+           @click="clickActiveMenu(list.id, list.link)"
        >
          <span
-             @click="clickActive(list.id)"
-             :class="isActive === list.id ? 'bg-gray-200' : ''"
-             class="flex rounded items-center w-full hover:bg-gray-300">
-           <a style="text-transform: uppercase; color: blue" :href="list.link">{{list.name}}</a>
+             :class="isActive === list.id ? 'bg-gray-700' : ''"
+             class="flex rounded items-center w-full hover:bg-gray-800"
+         >
+           <a @click.prevent class="transform duration-300 uppercase text-sm" :href="list.link">{{list.name}}</a>
          </span>
        </div>
        <select
            @change="switchLang"
-           class="bg-gray-300 rounded px-2 flex h-10"
+           class="bg-gray-300 rounded text-sm flex w-20 h-8"
        >
          <option  value="">EN</option>
          <option value="">UZ</option>
        </select>
-       <div @click="clickItems()" id="menu"  class="menu_item">
+       <div @click="clickItems()" id="menu" style="color: white" class="menu_item">
        </div>
        <div class="close_icon" @click="closeContent()" id="closeIcon" >
-         <img :src="close" alt="">
        </div>
-       <button id="btn_item" class="btn_item px-2" type="button"><a href="#contact">{{t('button')}}</a> </button>
+       <button id="btn_item" class="btn_item rounded-md px-2" type="button"><a class="text-sm" href="#contact">{{t('button')}}</a> </button>
      </div>
    </header>
-   <div class="content mt-10 flex">
+   <div class="content flex">
+     <CButton
+         :class="{'activeScroll': isOnActive}"
+         :faClass="'fa-solid fa-arrow-up'"
+         :is-has-fa-icon="true"
+         :text="''"
+         class="scrollBtn"
+         @click="scrollToTop"
+     />
+      <MenuTree/>
      <div class="card">
        <div class="card_item"
             data-aos="fade-right"
        >
          <div class="card_items">
-           <div  class="card_lorem">
+           <div class="card_lorem">
              <h1>{{t('cardTitle')}}</h1>
              <span>{{t('cardText')}}</span>
            </div>
@@ -96,10 +105,10 @@
        <div id="service" class="title_Items" data-aos="fade-up-right">
          <h2>{{t('service.title')}}</h2>
        </div>
-       <div class="section_items">
+       <div class="section_items gap-4">
          <div class="section_item" data-aos="flip-right">
            <div class="section_card">
-             <h2>{{t('service.title1')}}</h2>
+             <h2 class="text-sm flex">{{t('service.title1')}}</h2>
              <p>{{t('service.text')}}</p>
            </div>
            <img :src="klop" alt="">
@@ -136,7 +145,7 @@
              <img :src="icons" alt="">
              <p>{{t('service.sectionText')}}</p>
            </div>
-           <button class="btn_item"><a href="#contact">{{t('button')}}</a> </button>
+           <button class="bg-indigo-800 hover:bg-indigo-700 transition-all duration-200 rounded-2xl p-10 h-12 w-40 text-white cursor-pointer group"><a href="#contact">{{t('button')}}</a> </button>
          </div>
        </div>
      </section>
@@ -148,16 +157,16 @@
                v-for="(item, index) in items"
                :key="index"
              >
-             <div class="accordion-header" @click="toggleAccordion(index)"
+             <div class="accordion-header transition-all duration-200 cursor-pointer" @click="toggleAccordion(index)"
              >
-               <p style="font-size: 35px">{{item.title}} </p>
+               <p style="font-size: 25px; color: black">{{item.title}} </p>
                <img :src="chevron"
                     :style="{
                  transition: 'transform 0.3s',
                   transform: isOpen === index ? 'rotate(180deg)' : 'rotate(0deg)'}"
                     style="width: 24px; height: 24px" alt="chevron">
              </div>
-             <div class="accordion-body"
+             <div class="accordion-body transition-all duration-200"
                   v-if="isOpen === index"
              >
                <div class="accordion-content">
@@ -175,6 +184,7 @@
          <h2>{{t("contact.title")}}</h2>
          <input required id="name" type="text" v-model="name" name="name" :placeholder="t('contact.placeholder.name')">
          <input required id="number" type="number" v-model="number" name="number" :placeholder="t('contact.placeholder.phoneNumber')">
+         <textarea required rows="4" v-model="text" cols="50" :placeholder="t('contact.placeholder.write')"/>
          <button @click="clickButton" class="btn_save">{{t('contact.button')}}</button>
        </div>
        <div class="cardRight"
@@ -221,9 +231,11 @@ import Logo from '@/assets/Logo.jpg'
 import location from '@/assets/location.png'
 import phone from '@/assets/phone.png'
 import klop from '@/assets/klop.jpg'
-import { computed } from 'vue'
+import {computed, onBeforeUnmount} from 'vue'
 import { ref} from 'vue'
 import  { useI18n } from "vue-i18n"
+import CButton from "./components/CButton.vue";
+import MenuTree from "./views/MenuTree.vue";
 const { t, locale } =useI18n({useScope: "global"})
 
 const switchLang = ()=> {
@@ -231,12 +243,64 @@ const switchLang = ()=> {
 }
 
 const isActive = ref('');
+const isOnActive = ref(false);
 
-const clickActive = (id) => {
+const clickActiveMenu = (id, link) => {
   isActive.value = id
 
+  let ulItem = document.querySelector('.list_items')
+  let menu = document.getElementById("menu")
+  let closeIcon = document.getElementById('closeIcon')
+
+  menu.classList.add('menu_item')
+  ulItem.classList.remove("activeMenu")
+  closeIcon.classList.remove("activeClose")
+
+  setTimeout(() => {
+    document.querySelector(link)?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, 100)
 }
 
+const handleScroll = () => {
+  isOnActive.value = window.scrollY > 400
+}
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+}
+
+const menuData = computed(() =>  [
+  {
+    name: 'Web',
+    children: [
+      {
+        name: 'Frontend',
+        children: [
+          { name: 'Vue' },
+          { name: 'React' }
+        ]
+      },
+      {   name: 'Backend' }
+    ]
+  },
+  {
+    name: 'Design',
+    children: [
+      {
+        name: 'UI',
+        children: [
+          { name: 'Figma' },
+          { name: 'Adobe XD' }
+        ]
+      }
+    ]
+  }
+]);
 
 const lists = computed(() =>  [
   {
@@ -268,6 +332,13 @@ const idClickItem = () => {
 }
 
 idClickItem()
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+})
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+})
 </script>
 
 <script>
@@ -309,30 +380,17 @@ export default {
       chat_id: "764702407",
       name: "",
       number: "",
-      items: [
-        {
-          title: this.$t('faq.titles.title'),
-          text: this.$t("faq.titles.text"),
-        },
-        {
-          title: this.$t("faq.titles.title1"),
-          text: this.$t("faq.titles.text1"),
-        },
-        {
-          title: this.$t("faq.titles.title2"),
-          text: this.$t("faq.titles.text2"),
-        }
-      ],
+      text: "",
       isOpen: []
     }
   },
   methods:{
     async clickButton() {
-      if (!this.name || !this.number){
-        alert('Iltimos ism va raqamni kiriting!');
+      if (!this.name || !this.number || !this.text){
+        alert("Iltimos ma'lumotlarni to'liq kiriting!");
         return;
       }
-      const fullMessage = `Name: ${this.name}\nTel: ${this.number}`;
+      const fullMessage = `Name: ${this.name}\nTel: ${this.number}\nText: ${this.text}`;
       try {
         const res = await fetch(
             `https://api.telegram.org/bot${this.token}/sendMessage`,
@@ -349,6 +407,7 @@ export default {
         console.log("Message sent:", data);
         this.name = '';
         this.number = '';
+        this.text = '';
       } catch (err) {
         alert('Xabar yuborilmadi!');
         console.error("Error sending message:", err);
@@ -358,22 +417,48 @@ export default {
       this.isOpen = this.isOpen === index ? null : index;
     },
     clickItems(){
-      let ulItem =document.querySelector('.ul_item')
+      let ulItem =document.querySelector('.list_items')
       let menu = document.getElementById("menu")
       let closeIcon = document.getElementById('closeIcon')
 
       menu.classList.remove('menu_item')
-      ulItem.classList.add("active")
+      ulItem.classList.add("activeMenu")
       closeIcon.classList.add("activeClose")
     },
     closeContent(){
-      let ulItem =document.querySelector('.ul_item')
+      let ulItem =document.querySelector('.list_items')
       let menu = document.getElementById("menu")
       let closeIcon = document.getElementById('closeIcon')
 
       menu.classList.add('menu_item')
-      ulItem.classList.remove("active")
+      ulItem.classList.remove("activeMenu")
       closeIcon.classList.remove("activeClose")
+    }
+  },
+  computed:{
+    items() {
+      return [
+        {
+          title: this.$t('faq.titles.title'),
+          text
+              :
+              this.$t("faq.titles.text"),
+        }
+        ,
+        {
+          title: this.$t("faq.titles.title1"),
+          text
+              :
+              this.$t("faq.titles.text1"),
+        }
+        ,
+        {
+          title: this.$t("faq.titles.title2"),
+          text
+              :
+              this.$t("faq.titles.text2"),
+        }
+      ]
     }
   },
   init() {
@@ -392,7 +477,33 @@ body{
   box-sizing: border-box;
   font-family: sans-serif;
 }
-.container{
+img {
+  max-width: 100%;
+  height: auto;
+}
+.scrollBtn {
+  z-index: 10;
+  position: fixed;
+  background-color: crimson;
+  color: white;
+  width: 45px;
+  height: 45px;
+  right: 5px;
+  bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all .3s ease;
+}
+.scrollBtn.activeScroll {
+  opacity: 1;
+  right: 20px;
+}
+.allItems{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -408,14 +519,9 @@ body{
     padding: 20px 50px;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
     font-weight: bold;
     font-size: 20px;
     font-family: sans-serif;
-    .container{
-      display: flex;
-      width: 1300px;
-    }
     .logo_item{
       display: flex;
       width: 500px;
@@ -425,14 +531,15 @@ body{
         gap: 10px;
         color: indigo;
         font-weight: bold;
-        font-size: 50px;
         img{
+          border-radius: 50%;
           display: flex;
           height: 50px;
           width: 50px;
         }
         span{
-          font-size: 50px;
+          color: white;
+          font-size: 30px;
           font-weight: bold;
         }
       }
@@ -448,48 +555,33 @@ body{
     .list_items{
       display: flex;
       justify-content: space-between;
-      width: 800px;
       height: 50px;
       align-items: center;
       .ul_item{
-        width: 400px;
         height: 100%;
+        cursor: pointer;
         display: flex;
         align-items: center;
         list-style-type: none;
         justify-content: space-between;
         span{
+          width: 100%;
           display: flex;
+          padding: 5px 10px;
           justify-content: center;
-          height: 50px;
+          color: white;
           a:hover{
             background: none;
           }
         }
       }
-      .languageItem{
-        display: flex;
-        width: 100px;
-        height: 45px;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        font-size: 20px;
-        color: white;
-        background-color: darkgray;
-        border-radius: 8px;
-        border: 1px solid;
-      }
-      .languageItem:hover{
-        cursor: pointer;
-      }
       .btn_item{
         display: flex;
-        width: 150px;
-        height: 60px;
+        width: 100px;
+        height: 30px;
+        padding: 0 10px;
         align-items: center;
         justify-content: center;
-        border-radius: 20px;
         background-color: indigo;
         border: 2px solid indigo;
         font-size: 20px;
@@ -513,7 +605,7 @@ body{
   }
   .content{
     display: flex;
-    width: 95%;
+    width: 85%;
     height: 100%;
     margin: 50px auto;
     flex-direction: column;
@@ -535,7 +627,7 @@ body{
             height: 500px;
             gap: 40px;
             h1{
-              font-size: 100px;
+              font-size: 60px;
               font-weight: bold;
               line-height: 90px;
             }
@@ -615,27 +707,37 @@ body{
       display: flex;
       flex-direction: column;
       h1{
-        font-size: 50px;
+        font-size: 30px;
         font-weight: bold;
         margin-bottom: 30px;
       }
       .frames{
         padding: 40px 0;
         display: flex;
-        gap: 10px;
+        gap: 20px;
         margin-bottom: 40px;
         border-top: 1px solid darkgray;
         justify-content: space-between;
         .frame{
-          font-size: 22px;
+          padding: 14px;
+          box-shadow: #cccccc 1px 1px 4px 2px;
+          border-radius: 10px;
+          font-size: 18px;
           width: 100%;
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
           h2{
+            margin: 6px 0;
             font-weight: bold;
           }
           span{
             display: flex;
             width: 300px;
           }
+        }
+        .frame:hover{
+          cursor: pointer;
+          transform: scale(1.01) translateY(-10px);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
         }
       }
       .card_image{
@@ -644,7 +746,7 @@ body{
         justify-content: center;
         border-radius: 16px;
         margin-bottom: 50px;
-        background-image: url("@/assets/cardImage.png");
+        background-image: url("./assets/cardImage.png");
         background-size: cover;
         background-repeat: no-repeat;
         .image_info{
@@ -731,7 +833,7 @@ body{
           border-radius: 12px;
           background-color: #f3f6f6;
           flex-direction: column;
-          height: 500px;
+          height: 380px;
           position: relative;
           margin-bottom: 60px;
           .section_card{
@@ -739,7 +841,7 @@ body{
             height: 300px;
             flex-direction: column;
             h2{
-              font-size: 38px;
+              font-size: 20px;
               font-weight: 700;
               line-height: 39px;
               height: 80px;
@@ -803,17 +905,9 @@ body{
             a{
               color: white;
             }
-            a:hover{
-              list-style-type: none;
-              background: none;
-              color: indigo;
-            }
+
           }
-          .btn_item:hover{
-            cursor: pointer;
-            background-color: white;
-            color: indigo;
-          }
+
         }
       }
     }
@@ -825,7 +919,7 @@ body{
       border-top: 1px solid #cccccc;
       h2{
         width: 30%;
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 700;
       }
       .faq_right{
@@ -837,6 +931,7 @@ body{
           width: 100%;
           flex-direction: column;
           .accordion-header{
+            padding: 20px 0;
             width: 100%;
             height: 100px;
             display: flex;
@@ -846,6 +941,9 @@ body{
           }
           .accordion-body{
             padding-bottom: 20px;
+            p{
+              font-size: 20px;
+            }
           }
         }
       }
@@ -875,6 +973,14 @@ body{
           margin-bottom: 40px;
         }
         input{
+          line-height: 25px;
+          padding: 10px;
+          font-size: 16px;
+          background-color: #f2f2f2;
+          border-radius: 8px;
+          border: none;
+        }
+        textarea{
           line-height: 25px;
           padding: 10px;
           font-size: 16px;
@@ -968,15 +1074,43 @@ body{
 
 <style scoped>
 @media (max-width: 1200px){
-  .container{
+  .allItems{
     width: 100%;
     .sticky{
-
+      .list_items.activeMenu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 500px;
+        height: 100%;
+        padding: 100px 30px;
+        background: darkgray;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        z-index: 1000;
+      }
+      .list_items.activeMenu .ul_item {
+        display: flex !important;
+        width: 100%;
+        height: 40px;
+        span{
+          display: flex;
+          justify-content: start;
+          height: 100%;
+          width: 80%;
+        }
+      }
+      .list_items.activeMenu select,
+      .list_items.activeMenu .btn_item {
+        display: none;
+      }
       .list_items{
         display: flex;
         width: 400px;
         justify-content: space-between;
         .ul_item{
+          width: 100%;
           display: none;
         }
         .btn_item{
@@ -989,13 +1123,13 @@ body{
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 45px;
-          width: 40px;
-          background-image: url("@/assets/menu.png");
+          height: 35px;
+          width: 30px;
+          background-image: url("./assets/menu.png");
           background-size: cover;
           background-repeat: no-repeat;
           position: absolute;
-          right: 100px;
+          right: 50px;
         }
         .close_icon{
           display: flex;
@@ -1004,46 +1138,38 @@ body{
           display: flex;
           position: fixed;
           z-index: 1;
+          flex-direction: column;
           background-color: darkgray;
           top: 0;
           padding: 50px 0;
           right: 0;
           width: 500px;
-          height: 800px;
-          align-items: center;
+          justify-content: space-between;
           text-align: center;
-          flex-direction: column;
           span{
             display: flex;
-            margin-top: 50px;
-            height: 10%;
+            padding: 20px 0;
             width: 60%;
-            a{
-              width: 100px;
-              height: 40px;
-              display: flex;
-              justify-content: center;
-              background-color: #676D83;
-              color: white;
-            }
           }
+        }
+        span:hover{
+            background-color: #2c3e50;
+
         }
         .activeClose{
           display: flex;
           position: absolute;
           width: 30px;
           height: 30px;
+          padding: 4px;
+          border-radius: 50%;
           top: 50px;
           color: white;
-          background-image: url("@/assets/close.png");
+          background-image: url("./assets/close.png");
           background-size: cover;
           background-repeat: no-repeat;
           z-index: 1;
           right: 50px;
-        }
-        .activeClose:hover{
-          cursor: pointer;
-          color: red;
         }
       }
     }
@@ -1271,6 +1397,33 @@ body{
         }
       }
     }
+    .frames {
+      flex-direction: column !important;
+      gap: 20px;
+    }
+
+    .frame span {
+      width: 100% !important;
+    }
+
+    .card_image {
+      height: auto !important;
+      padding: 20px;
+    }
+    .image_info {
+      position: static !important;
+      left: 0 !important;
+      text-align: center;
+    }
+
+    .info_item p {
+      font-size: 22px !important;
+      width: 100% !important;
+    }
+
+    .info_item span {
+      width: 100% !important;
+    }
     .about{
       .frames{
         display: flex;
@@ -1309,26 +1462,118 @@ body{
         }
       }
     }
-    .section_image_items{
-      width: 500px;
-      .section_image{
-        width: 400px;
-        display: flex;;
-      }
+    .section_items {
+      flex-direction: column !important;
+      gap: 20px;
     }
-    footer{
-      display: flex;
-      flex-direction: column;
+
+    .section_item {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    .section_card h2 {
+      font-size: 22px !important;
+    }
+    .section_card p {
+      font-size: 14px !important;
+    }
+
+    .section_item img {
+      position: static !important;
+      margin-top: 10px;
+    }
+    .section_image_items {
+      flex-direction: column !important;
+      height: auto !important;
+      padding: 20px !important;
+      gap: 20px;
+    }
+
+    .section_image {
+      width: 100% !important;
+    }
+
+    .section_card_right {
       align-items: center;
-      .footerTitle{
-        width: 450px;
-      }
+      text-align: center;
+    }
+    .right_items p {
+      width: 100% !important;
+      font-size: 18px !important;
+    }
+    .card_faq {
+      flex-direction: column !important;
+      margin: 20px !important;
+    }
+
+    .card_faq h2 {
+      width: 100% !important;
+      font-size: 28px !important;
+    }
+
+    .faq_right {
+      width: 100% !important;
+    }
+
+    .accordion-header {
+      height: auto !important;
+    }
+
+    .accordion-header p {
+      font-size: 18px !important;
+    }
+    .cardItems {
+      flex-direction: column !important;
+      height: auto !important;
+      padding: 20px;
+    }
+
+    .cardLeft {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    .cardRight {
+      width: 100% !important;
+      position: static !important;
+      text-align: center;
+    }
+    .cardRight p {
+      position: static !important;
+      font-size: 18px !important;
+    }
+
+    .cardRight img {
+      position: static !important;
+      width: 200px !important;
+      margin: 0 auto;
+    }
+    footer {
+      flex-direction: column !important;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .footerTitle {
+      width: 100% !important;
+      justify-content: center;
+      font-size: 24px !important;
+    }
+
+    .footer_right {
+      width: 100% !important;
+      align-items: center;
     }
   }
 }
 
 @media (max-width: 680px) {
   .sticky{
+    padding: 10px 16px !important;
+    .logo_item h1 span {
+      display: none;
+    }
     .logo_item{
       width: 300px;
       h1{
@@ -1337,8 +1582,14 @@ body{
         }
       }
     }
-    .list_items{
+    .list_items.activeMenu{
       display: flex;
+      width: 100% !important;
+      gap: 10px;
+      .ul_item{
+        width: 100%;
+        display: flex;
+      }
     }
     .languageItem{
       width: 60px;
@@ -1352,13 +1603,35 @@ body{
   .content{
     .card{
       display: flex;
+      flex-direction: column !important;
+      align-items: center;
       .card_item{
         .card_items{
+          display: flex;
+          flex-direction: column !important;
+          text-align: center;
+          gap: 20px;
           .card_lorem{
+            width: 100%;
+            height: auto !important;
             display: flex;
             h1{
-              font-size: 40px;
+              font-size: 36px !important;
+              line-height: 1.2;
             }
+            span{
+              font-size: 16px !important;
+              width: 100% !important;
+            }
+          }
+          .imageItem{
+            display: flex;
+            position: relative !important;
+            width: 100% !important;
+          }
+          .right_image{
+            width: 100% !important;
+            height: auto !important;
           }
         }
       }

@@ -41,9 +41,10 @@
     "title": "Leave your information",
     "placeholder": {
       "name": "Name",
-      "phoneNumber": "+998"
+      "phoneNumber": "+998",
+      "write": "Writing ..."
     },
-    "button": "Writing",
+    "button": "Send",
     "text": "Many people have trusted us for many years"
   },
   "footer": {
