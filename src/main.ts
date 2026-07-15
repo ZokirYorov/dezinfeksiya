@@ -10,7 +10,7 @@ import 'aos/dist/aos.css'
 
 
 import { languages } from "./i18n";
-import { defaultLocale} from "./i18n";
+import { defaultLocale} from "./i18n/index";
 import { createI18n} from "vue-i18n"
 
 const messages = Object.assign(languages)
