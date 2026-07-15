@@ -45,7 +45,7 @@
          class="scrollBtn"
          @click="scrollToTop"
      />
-      <MenuTree/>
+<!--      <MenuTree/>-->
      <div class="card">
        <div class="card_item"
             data-aos="fade-right"
