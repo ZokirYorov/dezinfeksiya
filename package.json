@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "-": "^0.0.1",
     "@tailwindcss/vite": "^4.2.2",
     "@vue/runtime-core": "^3.4.21",
     "aos": "^2.3.4",
