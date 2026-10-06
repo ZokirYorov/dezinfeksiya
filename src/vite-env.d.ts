@@ -5,3 +5,14 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+
+declare module 'aos'
+
+interface ImportMetaEnv {
+    readonly VITE_TG_BOT_TOKEN?: string
+    readonly VITE_TG_CHAT_ID?: string
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv
+}

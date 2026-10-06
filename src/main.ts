@@ -1,36 +1,28 @@
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
 import './style.css'
-
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import { createApp } from 'vue'
+import { createI18n } from 'vue-i18n'
+import AOS from 'aos'
+import App from './App.vue'
+import router from './router'
+import { languages, getInitialLocale } from './i18n'
 
-import { languages } from "./i18n";
-import { defaultLocale} from "./i18n/index";
-import { createI18n} from "vue-i18n"
-
-const messages = Object.assign(languages)
 const i18n = createI18n({
     legacy: false,
-    locale: defaultLocale,
-    fallbackLocale: 'en',
-    messages
+    locale: getInitialLocale(),
+    fallbackLocale: 'uz',
+    messages: languages
 })
 
-const app = createApp(App, {
+createApp(App)
+    .use(router)
+    .use(i18n)
+    .mount('#app')
+
+AOS.init({
+    once: true,
+    duration: 700,
+    offset: 80,
+    disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
 })
-
-app.use(router)
-app.use(ElementPlus)
-router.beforeEach((to, from, next) => {
-    AOS.init(); // Initialize AOS
-    next();
-});
-app.use(i18n)
-
-app.use(AOS.init())
-app.mount('#app')

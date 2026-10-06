@@ -1,55 +1,119 @@
 {
-  "logo": "Dezinfeksiya",
-  "ulItems": {
-    "about": "Haqida",
-    "service": "Xizmatlar",
-    "faq": "FAQ",
-    "contact": "Bog'lanish"
+  "meta": {
+    "title": "Dezinfeksiya xizmati Toshkentda — klapa, tarakan va chayonni yo'qotish",
+    "description": "Toshkent bo'ylab professional dezinfeksiya xizmati. Klapa, tarakan, chayon va boshqa zararkunandalarni odamlar va uy hayvonlari uchun xavfsiz preparatlar bilan yo'qotamiz. Ariza qoldiring — o'zimiz qo'ng'iroq qilamiz."
   },
-  "switchLang": "UZ",
-  "button": "Bog'lanish",
-  "cardTitle": "Dezinfeksiya xizmati",
-  "cardText": "Bizning ko’p yillardan beri o’z faoliyatini olib kelayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun",
+  "brand": "Dezinfeksiya",
+  "skipToContent": "Asosiy qismga o'tish",
+  "nav": {
+    "about": "Biz haqimizda",
+    "services": "Xizmatlar",
+    "faq": "Savollar",
+    "contact": "Bog'lanish",
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish",
+    "language": "Tilni tanlash"
+  },
+  "cta": {
+    "request": "Ariza qoldirish",
+    "call": "Qo'ng'iroq qilish",
+    "order": "Buyurtma berish"
+  },
+  "hero": {
+    "badge": "Professional dezinfeksiya xizmati",
+    "title": "Uyingizni zararkunandalardan tozalaymiz",
+    "text": "Ko'p yillardan beri faoliyat yuritamiz. Klapa, tarakan, chayon va boshqa zararli hasharotlarni xavfsiz usulda yo'qotamiz — mijozlarimiz natijadan mamnun.",
+    "points": {
+      "safe": "Odamlar va uy hayvonlari uchun xavfsiz",
+      "fast": "Tezkor xizmat ko'rsatish",
+      "city": "Toshkent shahri bo'ylab"
+    },
+    "imageAlt": "Himoya kiyimidagi dezinfeksiya mutaxassisi"
+  },
   "about": {
-    "title": "Afzalliklarimiz",
-    "title2": "Tezda Xizmat Ko'rsatish",
-    "text": "Biz ko’p yillardan beri o’z faoliyatini yo'ritib kelayotgan kompaniyamiz. Mijozlarimiz bizdan mamnun",
-    "info": "Klapa va zararli hashorot endi yo’q deb hisoblang !!!"
+    "title": "Nima uchun bizni tanlashadi",
+    "subtitle": "Ishni sifatli, xavfsiz va o'z vaqtida bajaramiz",
+    "fast": {
+      "title": "Tezkor xizmat",
+      "text": "Ariza qoldirganingizdan so'ng siz bilan tezda bog'lanamiz. Mutaxassislarimiz o'zingizga qulay vaqtda manzilingizga borishadi."
+    },
+    "safe": {
+      "title": "Xavfsiz preparatlar",
+      "text": "Ishlatiladigan vositalar odamlar, uy hayvonlari va o'simliklar uchun xavfsiz. Ishlov berilgandan so'ng xonani 40 daqiqa shamollatish kifoya."
+    },
+    "experience": {
+      "title": "Ko'p yillik tajriba",
+      "text": "Ko'p yillardan beri ishlaymiz. Har bir holatga mos usulni tanlaymiz va natijaga kafolat beramiz."
+    },
+    "bannerTitle": "Klapa va zararli hasharotlardan butunlay xalos bo'ling!",
+    "bannerText": "Muammoingizni aytib bering — qolganini mutaxassislarimiz hal qiladi."
   },
-  "service": {
-    "title": "Xizmatlar",
-    "title1": "Klapalar",
-    "text": "Ular tushakda,  yumshoq mebelda, to'qimachilikda, eshik romlari va deraza romlari ostida yashaydilar. Ular odamlar va issiq qonli hayvonlarning qoni bilan oziqlanadi. Allergiya va og'ir psixologik noqulaylikni qo'zg'atadi.",
-    "title2": "TARAKANLAR",
-    "text2": "Ular patogenlarni olib yuradilar. Ular yoriqlarda, taglik tagida, mebel orqasida, hammom ostida, shkaflar ostida va xokazolarda yashaydilar. Ular oziq-ovqat, maishiy chiqindilar, charm buyumlar va qog'oz bilan oziqlanadilar",
-    "title3": "ChAYON",
-    "text3": "Hasharotlar va araxnidlar bilan oziqlanadigan issiqlikni yaxshi ko'radigan jonzotlar. Ular omborlarda va uylarda yashashlari mumkin, lekin ko'pincha ular yog'och binolarda topiladi.",
-    "sectionText": "Bizga ko'p yillardan beri kompaniyamizga ishonch bildirganlar talaygina"
+  "services": {
+    "title": "Xizmatlarimiz",
+    "subtitle": "Qaysi zararkunandadan qutulmoqchisiz?",
+    "bedbugs": {
+      "title": "Klapalar",
+      "text": "Karavot, yumshoq mebel, gilam va eshik-deraza romlari ostida yashaydi. Odam va hayvonlar qoni bilan oziqlanadi, allergiya va kuchli noqulaylik keltirib chiqaradi.",
+      "imageAlt": "Klapa"
+    },
+    "cockroaches": {
+      "title": "Tarakanlar",
+      "text": "Kasallik qo'zg'atuvchi mikroblarni tarqatadi. Yoriqlarda, mebel va vanna ostida, shkaflar orqasida yashaydi. Oziq-ovqat, chiqindi, charm buyum va qog'oz bilan oziqlanadi.",
+      "imageAlt": "Tarakan"
+    },
+    "scorpions": {
+      "title": "Chayonlar",
+      "text": "Issiqni yaxshi ko'radigan, hasharotlar bilan oziqlanadigan jonzotlar. Omborxona va uylarda, ko'pincha yog'och binolarda uchraydi.",
+      "imageAlt": "Chayon"
+    },
+    "trustTitle": "Ko'p yillardan beri bizga ishonib kelishadi",
+    "trustText": "Uy, ofis, do'kon va omborxonalarda ishlov beramiz. Mutaxassislarimiz maxsus himoya kiyimi va zamonaviy uskunalar bilan ishlashadi.",
+    "trustImageAlt": "Ishlov berayotgan mutaxassislar"
   },
   "faq": {
-    "title": "FAQ",
-    "titles": {
-      "title": "Zararkunandalarni yuq qilish qanday amalga oshiriladi?",
-      "text": "Maxsus asbob-uskunalar yordamida insektitsidlar aerozolli tumanga aylanadi va devor qog'ozi, devorlar va taxta plitalari orasidagi eng kichik bo'shliqlarga, ko'zga ko'rinmas hasharotlar uchun potentsial yashirish joylari ga kiradi.",
-      "title1": "Siz foydalanadigan dorilar xavflimi?",
-      "text1": "Preparatlar odamlar, uy hayvonlari va usimliklar uchun xavfli emas. Ammo davolanishdan keyin xonani 40 daqiqa davomida ventilyatsiya qilish kerak.",
-      "title2": "Menga uyimni davolanishga tayyorlashning qandaydir usuli kerakmi?",
-      "text2": "Asosan idish-tovoq va shaxsiy gigiyena vositalarini izolyatsiya qilishingiz kerak. Davolash paytida uy hayvonlari ham izolyatsiya qilinishi kerak. Mebel yoki maishiy texnikani ko'chirishga hojat yuq."
+    "title": "Ko'p beriladigan savollar",
+    "q1": {
+      "question": "Zararkunandalarni yo'q qilish qanday amalga oshiriladi?",
+      "answer": "Maxsus uskuna yordamida preparat mayda tumanga aylantiriladi. U devor qog'ozi, devor va pol taxtalari orasidagi eng kichik tirqishlarga — hasharotlar yashirinadigan joylarga kirib boradi."
+    },
+    "q2": {
+      "question": "Siz ishlatadigan preparatlar xavfli emasmi?",
+      "answer": "Preparatlar odamlar, uy hayvonlari va o'simliklar uchun xavfsiz. Faqat ishlov berilgandan keyin xonani 40 daqiqa shamollatish kerak."
+    },
+    "q3": {
+      "question": "Uyni ishlov berishga qanday tayyorlash kerak?",
+      "answer": "Idish-tovoq va shaxsiy gigiyena buyumlarini yopiq joyga olib qo'ying. Ishlov berish vaqtida uy hayvonlarini boshqa xonaga chiqaring. Mebel yoki texnikani surish shart emas."
     }
   },
   "contact": {
-    "title": "Malumotingizni qoldiring",
-    "placeholder": {
-      "name": "Ism",
-      "phoneNumber": "+998",
-      "write": "Yozish ..."
-    },
-    "button": "Yuborish",
-    "text": "Bizga ko'p yillardan beri kompaniyamizga ishonch bildirganlar talaygina"
+    "title": "Ma'lumotlaringizni qoldiring",
+    "subtitle": "Mutaxassislarimiz tez orada siz bilan bog'lanishadi va savollaringizga javob berishadi.",
+    "name": "Ismingiz",
+    "namePlaceholder": "Masalan: Aziz",
+    "phone": "Telefon raqamingiz",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "message": "Izoh (ixtiyoriy)",
+    "messagePlaceholder": "Masalan: Kvartirada tarakanlar ko'payib ketdi",
+    "submit": "Yuborish",
+    "sending": "Yuborilmoqda...",
+    "privacy": "Ma'lumotlaringiz faqat siz bilan bog'lanish uchun ishlatiladi.",
+    "success": "Rahmat! Arizangiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
+    "orCall": "Yoki hoziroq qo'ng'iroq qiling",
+    "imageAlt": "Dezinfeksiya mutaxassisi",
+    "errors": {
+      "nameRequired": "Ismingizni yozing.",
+      "nameShort": "Ism kamida 2 ta harfdan iborat bo'lsin.",
+      "phoneInvalid": "Telefon raqamini to'liq kiriting, masalan: +998 90 123 45 67",
+      "network": "Xabar yuborilmadi. Internet aloqasini tekshirib, qayta urinib ko'ring yoki bizga qo'ng'iroq qiling: {phone}",
+      "notConfigured": "Ariza formasi hozircha ishlamayapti. Iltimos, bizga to'g'ridan-to'g'ri qo'ng'iroq qiling: {phone}"
+    }
   },
   "footer": {
-    "logo": "Dezinfeksiya",
-    "location": "O'zbekiston, Toshkent shahri",
-    "number": "+99899 000 00 00"
-  }
+    "description": "Toshkent bo'ylab professional dezinfeksiya xizmati. Xavfsiz preparatlar, tajribali mutaxassislar.",
+    "navigation": "Bo'limlar",
+    "contacts": "Aloqa",
+    "address": "O'zbekiston, Toshkent shahri",
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "scrollTop": "Sahifa boshiga qaytish"
 }

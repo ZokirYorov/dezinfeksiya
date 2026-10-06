@@ -10,6 +10,15 @@ export default defineConfig({
     vue(),
       tailwindcss()
   ],
+  // host: true — sayt lokal tarmoqdagi boshqa qurilmalarda (telefon) ham ochiladi
+  server: {
+    host: true,
+    port: 5173
+  },
+  preview: {
+    host: true,
+    port: 4173
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

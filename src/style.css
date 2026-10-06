@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* AOS fade-left/right animatsiyalari telefonda gorizontal scroll chiqarmasligi uchun.
+   html'ga ham qo'yildi — iOS Safari faqat body'dagisini e'tiborsiz qoldiradi. */
+html,
+body {
+    overflow-x: clip;
+}
+
+/* Uzun so'zlar (masalan "zararkunandalardan") tor ekranga sig'masa, keyingi qatorga o'tadi */
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: break-word;
+}
+
+/* Sticky header bo'lim sarlavhasini yopib qo'ymasligi uchun */
+section[id] {
+    scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

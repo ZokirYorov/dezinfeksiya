@@ -1,55 +1,119 @@
 {
-  "logo": "Disinfection",
-  "ulItems": {
-    "about": "About",
-    "service": "Services",
+  "meta": {
+    "title": "Pest Control & Disinfection in Tashkent — bed bugs, cockroaches, scorpions",
+    "description": "Professional disinfection and pest control across Tashkent. We remove bed bugs, cockroaches, scorpions and other pests using products that are safe for people and pets. Leave a request and we will call you back."
+  },
+  "brand": "Disinfection",
+  "skipToContent": "Skip to main content",
+  "nav": {
+    "about": "About us",
+    "services": "Services",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Choose language"
   },
-  "switchLang": "EN",
-  "button": "Connection",
-  "cardTitle": "Disinfection service",
-  "cardText": "Our company has been operating for many years our company. Our customers are happy with us",
+  "cta": {
+    "request": "Leave a request",
+    "call": "Call us",
+    "order": "Book now"
+  },
+  "hero": {
+    "badge": "Professional disinfection service",
+    "title": "We free your home from pests",
+    "text": "We have been in business for many years. We safely get rid of bed bugs, cockroaches, scorpions and other harmful insects — and our customers are happy with the results.",
+    "points": {
+      "safe": "Safe for people and pets",
+      "fast": "Fast arrival",
+      "city": "Anywhere in Tashkent"
+    },
+    "imageAlt": "Disinfection specialist in protective gear"
+  },
   "about": {
-    "title": "Our advantages",
-    "title2": "Fast Service",
-    "text": "Our company has been operating for many years our company Our customers are satisfied with us",
-    "info": "Consider the valve and harmful insects no more !!!"
+    "title": "Why people choose us",
+    "subtitle": "We do the job well, safely and on time",
+    "fast": {
+      "title": "Fast service",
+      "text": "Once you leave a request, we get in touch quickly and come at a time that suits you."
+    },
+    "safe": {
+      "title": "Safe products",
+      "text": "The products we use are safe for people, pets and plants. Just air the room for 40 minutes after treatment."
+    },
+    "experience": {
+      "title": "Years of experience",
+      "text": "We have been doing this for many years. We pick the right method for every case and stand behind the result."
+    },
+    "bannerTitle": "Bed bugs and pests? Consider them gone!",
+    "bannerText": "Tell us about the problem — our specialists will take care of the rest."
   },
-  "service": {
-    "title": "Service",
-    "title1": "VALVES",
-    "text": "They live in beds, upholstered furniture, textiles, under door frames and window frames. They feed on the blood of humans and warm-blooded animals. Causes allergies and severe psychological discomfort.",
-    "title2": "COCKROACHES",
-    "text2": "They carry pathogens. They live in cracks, under the mattress, behind the furniture, under the bathroom, under the cabinets, etc. They feed on food, household waste, leather goods and paper",
-    "title3": "SCORPIO",
-    "text3": "Heat-loving creatures that feed on insects and arachnids. They can live in barns and houses, but most often they are found in wooden buildings.",
-    "sectionText": "Many people have trusted us for many years"
+  "services": {
+    "title": "Our services",
+    "subtitle": "Which pest do you want to get rid of?",
+    "bedbugs": {
+      "title": "Bed bugs",
+      "text": "They live in beds, upholstered furniture, carpets and under door and window frames. They feed on the blood of people and animals and cause allergies and serious discomfort.",
+      "imageAlt": "Bed bug"
+    },
+    "cockroaches": {
+      "title": "Cockroaches",
+      "text": "They spread germs. They live in cracks, under furniture and bathtubs and behind cabinets, feeding on food, waste, leather goods and paper.",
+      "imageAlt": "Cockroach"
+    },
+    "scorpions": {
+      "title": "Scorpions",
+      "text": "Heat-loving creatures that feed on insects. They live in barns and houses, most often in wooden buildings.",
+      "imageAlt": "Scorpion"
+    },
+    "trustTitle": "Trusted by our customers for many years",
+    "trustText": "We treat homes, offices, shops and warehouses. Our specialists work in protective suits with modern equipment.",
+    "trustImageAlt": "Specialists treating a room"
   },
   "faq": {
-    "title": "FAQ",
-    "titles": {
-      "title": "How is the transmission of pests carried out?",
-      "text": "With the help of special equipment, insecticides turn into an aerosol mist and penetrate into the smallest gaps between wallpaper, walls and floorboards, potential hiding places for invisible insects.",
-      "title1": "Are the drugs you use dangerous?",
-      "text1": "Medicines are not dangerous for people, pets and plants. But after treatment, the room should be ventilated for 40 minutes.",
-      "title2": "Do I need some way to prepare my home for treatment?",
-      "text2": "Mainly you need to isolate dishes and personal hygiene products. Pets should also be isolated during treatment. No need to move furniture or appliances."
+    "title": "Frequently asked questions",
+    "q1": {
+      "question": "How is pest treatment carried out?",
+      "answer": "Special equipment turns the product into a fine mist. It reaches the smallest gaps between wallpaper, walls and floorboards — the places where insects hide."
+    },
+    "q2": {
+      "question": "Are the products you use dangerous?",
+      "answer": "The products are safe for people, pets and plants. You only need to air the room for 40 minutes after treatment."
+    },
+    "q3": {
+      "question": "How should I prepare my home?",
+      "answer": "Put away dishes and personal hygiene items. Keep pets in another room during treatment. There is no need to move furniture or appliances."
     }
   },
   "contact": {
-    "title": "Leave your information",
-    "placeholder": {
-      "name": "Name",
-      "phoneNumber": "+998",
-      "write": "Writing ..."
-    },
-    "button": "Send",
-    "text": "Many people have trusted us for many years"
+    "title": "Leave your details",
+    "subtitle": "Our specialist will contact you shortly and answer all your questions.",
+    "name": "Your name",
+    "namePlaceholder": "e.g. John",
+    "phone": "Phone number",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "message": "Comment (optional)",
+    "messagePlaceholder": "e.g. Cockroaches in a 2-room apartment",
+    "submit": "Send",
+    "sending": "Sending...",
+    "privacy": "Your details are used only to contact you.",
+    "success": "Thank you! Your request has been received. We will contact you shortly.",
+    "orCall": "Or call us right now",
+    "imageAlt": "Disinfection specialist",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "nameShort": "The name should be at least 2 letters long.",
+      "phoneInvalid": "Please enter the full phone number, e.g. +998 90 123 45 67",
+      "network": "Your message was not sent. Check your internet connection and try again, or call us: {phone}",
+      "notConfigured": "The request form is temporarily unavailable. Please call us directly: {phone}"
+    }
   },
   "footer": {
-    "logo": "Disinfection",
-    "location": "Tashkent city, Uzbekistan",
-    "number": "+99899 000 00 00"
-  }
+    "description": "Professional disinfection service across Tashkent. Safe products, experienced specialists.",
+    "navigation": "Sections",
+    "contacts": "Contacts",
+    "address": "Tashkent, Uzbekistan",
+    "rights": "All rights reserved."
+  },
+  "scrollTop": "Back to top"
 }
