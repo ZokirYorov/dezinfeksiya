@@ -1,7 +1,7 @@
 <template>
   <header
       class="sticky top-0 z-40 border-b transition-colors duration-300"
-      :class="scrolled ? 'border-slate-200 bg-white/90 shadow-sm backdrop-blur' : 'border-transparent bg-white'"
+      :class="scrolled ? 'header-dotted border-slate-200' : 'border-transparent bg-white'"
   >
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
       <a href="#top" class="flex items-center gap-3" @click="closeMenu">
