@@ -4,13 +4,21 @@
       :class="scrolled ? 'header-dotted border-slate-200' : 'border-transparent bg-white'"
   >
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
-      <a href="#top" class="flex items-center gap-3" @click="closeMenu">
+      <a
+          href="#top"
+          class="flex items-center gap-3 rounded-full bg-white/95 py-1 pl-1 pr-4 transition-shadow"
+          :class="{ 'shadow-sm ring-1 ring-slate-200/70': scrolled }"
+          @click="closeMenu"
+      >
         <img :src="logo" alt="" width="44" height="44" class="h-11 w-11 rounded-full">
         <span class="text-xl font-extrabold text-indigo-900">{{ t('brand') }}</span>
       </a>
 
       <nav class="hidden lg:block" :aria-label="t('brand')">
-        <ul class="flex items-center gap-1">
+        <ul
+            class="flex items-center gap-1 rounded-xl bg-white/95 p-1 transition-shadow"
+            :class="{ 'shadow-sm ring-1 ring-slate-200/70': scrolled }"
+        >
           <li v-for="item in sections" :key="item.id">
             <a
                 :href="`#${item.id}`"
@@ -33,7 +41,8 @@
         </a>
         <button
             type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 lg:hidden"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/95 text-slate-700 transition-shadow hover:bg-slate-100 lg:hidden"
+            :class="{ 'shadow-sm ring-1 ring-slate-200/70': scrolled }"
             :aria-label="isOpen ? t('nav.closeMenu') : t('nav.openMenu')"
             :aria-expanded="isOpen"
             aria-controls="mobile-menu"
